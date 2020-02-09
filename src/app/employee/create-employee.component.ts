@@ -24,6 +24,12 @@ export class CreateEmployeeComponent implements OnInit {
       'required': 'email  is required.',
 
     },
+    
+    'phone':{
+
+      'required': 'Phone Number  is required.',
+
+    },
     'skillName':{
       'required': 'Skill  name  is required.',
 
@@ -41,9 +47,12 @@ export class CreateEmployeeComponent implements OnInit {
   formErrors = {
     'fullName': '',
     'email':'',
+    'phone': "",
+
     'skillName':'',
     'experienceInYears':'',
     'proficiency':''
+    
   };
 
 
@@ -55,7 +64,11 @@ export class CreateEmployeeComponent implements OnInit {
   ngOnInit() {
     this.employeeForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(2) , Validators.maxLength(10)]],
+      contactPreference: ['email', 'phone'],
+      
       email: ['',Validators.required],
+      phone: [''],
+
       skills: this.fb.group({
         skillName: ['',Validators.required],
         experienceInYears: ['',Validators.required],
