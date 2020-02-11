@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class CreateEmployeeComponent implements OnInit {
   employeeForm: FormGroup;
-  employee:IEmployee;
+  employee: IEmployee;
 
   fullNameLength = 0;
   // This object contains all the validation messages for this form
@@ -47,9 +47,9 @@ export class CreateEmployeeComponent implements OnInit {
   };
 
   constructor(private fb: FormBuilder,
-              private route: ActivatedRoute,
-              private employeeService: EmployeeService,
-              private router: Router) { }
+    private route: ActivatedRoute,
+    private employeeService: EmployeeService,
+    private router: Router) { }
 
   ngOnInit() {
     this.employeeForm = this.fb.group({
@@ -80,6 +80,17 @@ export class CreateEmployeeComponent implements OnInit {
       const empId = +params.get('id');
       if (empId) {
         this.getEmployee(empId);
+      }
+      else {
+        this.employee = {
+          id: null,
+          fullName: '',
+          contactPreference: '',
+          email: '',
+          phone: null,
+          skills: []
+        };
+
       }
     });
   }
@@ -197,10 +208,19 @@ export class CreateEmployeeComponent implements OnInit {
 
   onSubmit(): void {
     this.mapFormValuesToEmployeeModel();
-    this.employeeService.updateEmployee(this.employee).subscribe(
-      () => this.router.navigate(['list']),
-      (err: any) => console.log(err)
-    );
+    if (this.employee.id) {
+      this.employeeService.updateEmployee(this.employee).subscribe(
+        () => this.router.navigate(['list']),
+        (err: any) => console.log(err)
+      );
+    }
+    else {
+      this.employeeService.addEmployee(this.employee).subscribe(
+        () => this.router.navigate(['list']),
+        (err: any) => console.log(err)
+      );
+    }
+
   }
 
   mapFormValuesToEmployeeModel() {
@@ -210,7 +230,7 @@ export class CreateEmployeeComponent implements OnInit {
     this.employee.phone = this.employeeForm.value.phone;
     this.employee.skills = this.employeeForm.value.skills;
   }
-  
+
 }
 
 function matchEmail(group: AbstractControl): { [key: string]: any } | null {

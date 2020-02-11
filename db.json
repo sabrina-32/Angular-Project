@@ -45,6 +45,24 @@
           "proficiency": "advanced"
         }
       ]
+    },
+    {
+      "id": 3,
+      "fullName": "Devid",
+      "email": "devid@selise.ch",
+      "phone": "454t5665",
+      "skills": [
+        {
+          "skillName": "C#",
+          "experienceInYears": "2",
+          "proficiency": "beginner"
+        },
+        {
+          "skillName": "c",
+          "experienceInYears": "5",
+          "proficiency": "advanced"
+        }
+      ]
     }
   ]
 }
