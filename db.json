@@ -4,7 +4,7 @@
             "id": 1,
             "fullName": "Mark",
             "contactPreference": "email",
-            "email": "mark@email.com",
+            "email": "mark@selise.ch",
             "phone": "5641238971",
             "skills": [
                 {
@@ -23,7 +23,7 @@
             "id": 2,
             "fullName": "John",
             "contactPreference": "phone",
-            "email": "john@email.com",
+            "email": "john@selise.ch",
             "phone": "3242138971",
             "skills": [
                 {
