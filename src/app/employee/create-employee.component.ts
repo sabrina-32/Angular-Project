@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { EmployeeService } from './employee.service';
 import { IEmployee } from './IEmployee';
 import { ISkill } from './ISkill';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-create-employee',
@@ -14,7 +16,7 @@ import { ISkill } from './ISkill';
 export class CreateEmployeeComponent implements OnInit {
   employeeForm: FormGroup;
   employee:IEmployee;
-  
+
   fullNameLength = 0;
   // This object contains all the validation messages for this form
   validationMessages = {
@@ -46,7 +48,8 @@ export class CreateEmployeeComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private route: ActivatedRoute,
-              private employeeService: EmployeeService) { }
+              private employeeService: EmployeeService,
+              private router: Router) { }
 
   ngOnInit() {
     this.employeeForm = this.fb.group({
@@ -84,7 +87,12 @@ export class CreateEmployeeComponent implements OnInit {
   getEmployee(id: number) {
     this.employeeService.getEmployee(id)
       .subscribe(
-        (employee: IEmployee) => this.editEmployee(employee),
+        (employee: IEmployee) => {
+          // Store the employee object returned by the
+          // REST API in the employee property
+          this.employee = employee;
+          this.editEmployee(employee);
+        },
         (err: any) => console.log(err)
       );
   }
@@ -188,13 +196,21 @@ export class CreateEmployeeComponent implements OnInit {
 
 
   onSubmit(): void {
-
-    console.log(this.employeeForm.touched);
-    console.log(this.employeeForm.value);
-
-    console.log(this.employeeForm.controls.touched);
-    console.log(this.employeeForm.get('fullName').value);
+    this.mapFormValuesToEmployeeModel();
+    this.employeeService.updateEmployee(this.employee).subscribe(
+      () => this.router.navigate(['list']),
+      (err: any) => console.log(err)
+    );
   }
+
+  mapFormValuesToEmployeeModel() {
+    this.employee.fullName = this.employeeForm.value.fullName;
+    this.employee.contactPreference = this.employeeForm.value.contactPreference;
+    this.employee.email = this.employeeForm.value.emailGroup.email;
+    this.employee.phone = this.employeeForm.value.phone;
+    this.employee.skills = this.employeeForm.value.skills;
+  }
+  
 }
 
 function matchEmail(group: AbstractControl): { [key: string]: any } | null {
