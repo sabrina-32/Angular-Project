@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 export class CreateEmployeeComponent implements OnInit {
   employeeForm: FormGroup;
   employee: IEmployee;
+  pageTitle:string;
+
 
   fullNameLength = 0;
   // This object contains all the validation messages for this form
@@ -79,9 +81,12 @@ export class CreateEmployeeComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const empId = +params.get('id');
       if (empId) {
+        this.pageTitle = 'Edit Employee';
         this.getEmployee(empId);
       }
       else {
+        this.pageTitle = 'Create Employee';
+
         this.employee = {
           id: null,
           fullName: '',
