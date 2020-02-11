@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateEmployeeComponent } from './employee/create-employee.component';
 import { ListEmployeesComponent } from './employee/list-employees.component';
-import { EmployeeService } from './employee/employee.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,10 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ],
-  providers: [EmployeeService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
