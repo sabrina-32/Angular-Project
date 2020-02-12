@@ -2,7 +2,7 @@
   "employees": [
     {
       "id": 1,
-      "fullName": "Marknjhgj",
+      "fullName": "Mnjhgj",
       "email": "ma43rk@selise.ch",
       "phone": "56412387877971",
       "skills": [
@@ -14,11 +14,6 @@
         {
           "skillName": "Java",
           "experienceInYears": 2,
-          "proficiency": "intermediate"
-        },
-        {
-          "skillName": "Ruby",
-          "experienceInYears": "1",
           "proficiency": "intermediate"
         }
       ]
