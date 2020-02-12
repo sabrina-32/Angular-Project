@@ -15,6 +15,11 @@
           "skillName": "Java",
           "experienceInYears": 2,
           "proficiency": "intermediate"
+        },
+        {
+          "skillName": "Ruby",
+          "experienceInYears": "1",
+          "proficiency": "beginner"
         }
       ]
     },
