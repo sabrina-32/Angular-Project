@@ -9,7 +9,6 @@ import { PageNotFoundComponent } from './page-not-found.component';
 // const routes: Routes = [];
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-
   { path: 'list', component: ListEmployeesComponent },
   { path: 'create', component: CreateEmployeeComponent },
   { path: 'edit/:id', component: CreateEmployeeComponent },
