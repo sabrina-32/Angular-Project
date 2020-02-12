@@ -9,12 +9,14 @@ import{EmployeeRoutingModule} from './employee-routing.module';
 import { CreateEmployeeComponent } from './create-employee.component';
 import { ListEmployeesComponent } from './list-employees.component';
 import { from } from 'rxjs';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    EmployeeRoutingModule
+    EmployeeRoutingModule,
+    SharedModule
   ],
   declarations: [
     CreateEmployeeComponent,

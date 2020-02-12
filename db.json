@@ -2,7 +2,7 @@
   "employees": [
     {
       "id": 1,
-      "fullName": "Mnjhgj",
+      "fullName": "ugyuj",
       "email": "ma43rk@selise.ch",
       "phone": "56412387877971",
       "skills": [
@@ -56,6 +56,19 @@
           "skillName": "c",
           "experienceInYears": "5",
           "proficiency": "advanced"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "fullName": "sabrina",
+      "email": "sabrina.ayvi@selise.ch",
+      "phone": "",
+      "skills": [
+        {
+          "skillName": "JavaScript",
+          "experienceInYears": "1",
+          "proficiency": "beginner"
         }
       ]
     }
