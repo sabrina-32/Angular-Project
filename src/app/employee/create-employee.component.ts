@@ -195,14 +195,14 @@ export class CreateEmployeeComponent implements OnInit {
 
     const formArray1 = this.fb.array([
 
-      new FormControl('Emu', Validators.required),
-      new FormControl('IIT', Validators.required),
+      new FormControl('Sabrina', Validators.required),
+      new FormControl('SWE', Validators.required),
       new FormControl('Female', Validators.required),
     ]);
     const formGroup1 = this.fb.group([
 
-      new FormControl('Emu', Validators.required),
-      new FormControl('IIT', Validators.required),
+      new FormControl('Sabrina', Validators.required),
+      new FormControl('SWE', Validators.required),
       new FormControl('Female', Validators.required),
     ]);
     console.log(formArray1);
